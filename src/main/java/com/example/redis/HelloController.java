@@ -25,10 +25,10 @@ public class HelloController {
         return "saved";
         }
 
-    @GetMapping("getFruit")
-    public String getfruit(){
-        ValueOperations<String,String> ops=stringRedisTemplate.opsForValue();
-        String fruitname = ops.get("fruit"); //키 값에 있는 값을 갖고 온다
-        return fruitname;
-    }
+        @GetMapping("getFruit")
+        public String getfruit(){
+            ValueOperations<String,String> ops=stringRedisTemplate.opsForValue();
+            String fruitname = ops.get("fruit"); //키 값에 있는 값을 갖고 온다
+            return fruitname;
+        }
 }
