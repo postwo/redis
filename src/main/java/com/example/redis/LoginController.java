@@ -12,19 +12,17 @@ public class LoginController {
 
     //session 연습
 
-    HashMap<String,String> sessionMap = new HashMap<>();
-
-
     @GetMapping("/login")
     public String login(HttpSession session,String name){
-        sessionMap.put(session.getId(),name);
+        session.setAttribute("name",name);
+
         return "saved";
 
     }
 
     @GetMapping("/myname")
     public String myName(HttpSession session){
-       String myName  = sessionMap.get(session.getId());
+       String myName  = (String) session.getAttribute("name");
         return myName;
     }
 
