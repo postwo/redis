@@ -1,8 +1,18 @@
 # docker에서 redis를 꼭 실행해놓고 해야한다
+
+#redis로 session 사용
+#spring:
+#  session:
+#    storage-type: redis
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+
+
 spring:
-  session:
-    storage-type: redis
   data:
     redis:
       host: localhost
       port: 6379
+
