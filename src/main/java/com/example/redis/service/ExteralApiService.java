@@ -36,7 +36,7 @@ public class ExteralApiService {
         }catch (InterruptedException e){
         }
 
-        System.out.println("Other Servcie");
+        System.out.println("age Other Servcie");
 
         if (userId.equals("A")){
             return 28;
