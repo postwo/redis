@@ -26,7 +26,7 @@ public class UserServce {
         userName = cachedName;
         }else{
             userName= exteralApiService.getUserName(userId);
-            ops.set("nameKey:"+userId, userName, 5, TimeUnit.SECONDS);
+            ops.set("nameKey:"+userId, userName, 5, TimeUnit.SECONDS); //
         }
 
 
