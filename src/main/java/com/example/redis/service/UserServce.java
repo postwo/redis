@@ -19,13 +19,12 @@ public class UserServce {
         String userName= null;
 
         //getusername을 호출하기 전에 캐싱을 먼저 체크
+        //redis를 가지고 직접구현한 캐싱이다
         ValueOperations<String,String> ops = RedisTemplate.opsForValue();
         String cachedName = ops.get("nameKey:"+userId);
         if (cachedName != null){
-            System.out.println("test");
         userName = cachedName;
         }else{
-            System.out.println("재접속");
             userName= exteralApiService.getUserName(userId);
             ops.set("nameKey:"+userId, userName, 5, TimeUnit.SECONDS);
         }

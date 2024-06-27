@@ -1,6 +1,7 @@
 package com.example.redis.service;
 
 import com.sun.source.tree.TryTree;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,8 @@ public class ExteralApiService {
         }catch (InterruptedException e){
         }
 
+        System.out.println("name Other Servcie");
+
         if (userId.equals("A")){
             return "Adam";
         }
@@ -27,7 +30,8 @@ public class ExteralApiService {
         return "";
     }
 
-
+    //어노테이션을 활용해 cache 설정
+    @Cacheable(cacheNames = "userAgeCache",key = "#userId")
     public int getUserAge(String userId) {
 
         try{
